@@ -1,0 +1,38 @@
+- Unidimensional 
+	- tipo nome [tamanho]
+
+	ex: main()
+		{
+			int x [10]
+			int t 
+			for(t = 0 ; t < 10 ; t++) {
+				x[t] = t * 2 ;
+				printf("%d\n",x[t]);
+			}
+		}
+
+	ex 2 : 
+		main() {
+			int notas[5] , i , soma ; 
+			for(i = 0 ; i < 5 ; i++) {
+				printf("Digite a nota do aluno %d",i);
+				scanf("%d",&notas[i])
+			}
+			soma = 0 ; 
+			for(i = 0 ; i < 5 ; i++) {
+				soma = soma + nota ; 
+			}
+			printf("Média das notas : %d",soma/5);
+		}
+
+- multidimensional 
+	- tipo nome[tamanho][tamanho]
+
+	ex1: main() {
+		int x[10][10] ;
+		int t,p=0 ; 
+		for(t = 0 ; t < 10 ; t++ , p++) {
+			x[t][p] = t * p ; 
+			printf("%d\n",x[t][p]);
+		}
+	}

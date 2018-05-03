@@ -1,0 +1,124 @@
+tipo *nomevar 
+	- é uma variável que contém o endereço de outra variável. Os ponteiros são utilizados alocação dinâmica , podendo substituir matrizes com mais eficiência. Tambem fornecem a maneira pela quais funções podem modificar os argumentos chamados. 
+
+	- Declaração 
+		 int x , *px;
+		 px = &x, // a variável px aponte para x 
+		 Para utilizar o conteúdo da variável para qual o ponteiro aponta : y = *px ; o que é o mesmo que y = x ;  
+
+	- Manipulando ponteiros 
+		main() {
+			int x , *px , *py ; 
+			x = 9 ; 
+			px = &x ; 
+			py = py ;
+			printf("x = %d\n",x);
+			printf("&x = %d\n",&x);
+			printf("px = %d\n",px);
+			printf("*px = %d\n",*px);
+			printf("*py = %d\n",*py);
+		}
+
+	- Expressões com ponteiros 
+		se px aponta um inteiro x 
+
+		y = *px + 1 ; //
+		y = *(px + 1); //
+		*px++ //
+		*(px--) //
+
+		main() {
+			int x , *px ; 
+			x = 2 ; 
+			px = &x ; 
+			printf("x = %d\n",x);
+			printf("px = %u\n",px);
+			printf("*px + 1 = %d\n",*px + 1);
+			printf("px = %u\n",px);
+			printf("*px = %d\n",*px);
+			printf("px + 1 = %d\n",*px +=1);
+			printf("px = %u\n",px);
+			printf("(*px")++ = %d\n",(*px)++);
+			printf("px = %u\n",px);
+			printf("*(px++) = %d\n",*(px++))
+			printf("px++ = %d\n", *px++)
+			printf("px = %u\n",px); 
+		}
+
+	- Ponteiro para ponteiro 
+		- O primeiro ponteiro contém o endereço do segundo , que aponta para a variável que contém o valor desejado 
+		ex : float **balanco ; balanco é um ponteiro para um ponteiro float.
+		ex2 : main() {
+			int x , *p , **q;
+			x = 10 ; 
+			p = &x ; 
+			q &p;
+			printf("%d",**p);
+		}
+
+		- problemas com ponteiros 
+		int *p;
+		x = 10 ;
+		*p = x ; 
+		estamos atribuindo o valor 10 a uma localização desconhecida de memória , a consequência desta atribuição é imprevisível 
+
+		- ponteiros e matrizes 
+		considerado a matriz int a[10] , sendo pa um ponteiro inteiro pa = &a[0] // passa o endereço inicial do vetor a para o ponteiro pa
+		pa = a ; // mesma coisa de pa = &a[0]
+		x = *pa // passa o conteúdo de a[0] para x 
+		se pa aponta para a[0] então *(pa + 1) aponta para a[1] 
+		- pa+i é o endereço de a[1]
+		- *(pa+i) é o conteúdo 
+
+		ex : (versão matriz)
+			main()
+				{
+				int i = 0 ; 
+				char t[10];
+				static char s[]="abobora";
+				while(t[i] = s[i]) i++;
+				printf("%s\n",t);
+				}
+
+		ex : (versão ponteiro)
+			main()
+				{
+				char *ps , *pt , t[10] , s[10];
+				strcpy(s,"abobora");
+				ps = s ; 
+				pt = &t[0];
+				while(*ps)*pt++ = *ps++;
+				printf("%s",t);
+				}
+
+	- string de ponteiro 
+		char *texto ; 
+		*texto = "conjunto"
+		static char texto[] = "composto";
+		ex :
+			main() {
+			char *al = "conjunto";
+			char re[] = "simples";
+			puts(al);
+			puts(&re[0]);
+			//puts(re);
+			for(,al , al++) {
+				putchar(*al)
+			}
+			putchar("\n");
+			}
+
+		ex 2 ; 
+			char * erros[] = ("arquivo não encontrado \n","erro de leitura \n");
+			printf("%s", erro[0]);
+			printf("%s",erro[1]);
+
+		ex 3 
+			main() {
+			char * erro[2];
+			erro[0] = "arquivo não encontrado\n";
+			erro[1] = "erro de leitura";
+			for(, *erro[0]) {
+				printf("%c",*erro[0]++);
+			}
+			}
